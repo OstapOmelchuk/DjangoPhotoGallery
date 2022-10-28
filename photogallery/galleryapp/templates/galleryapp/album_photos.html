@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .tool-bar a{
+        margin-right: 10px;
+    }
+
+    .photo-cover a{
+        margin-left: 20px;
+    }
+
+    .photo-cover {
+        display: flex;
+    }
+
+
+</style>
+
+<div class="tool-bar">
+    <a href="{% url 'home' %}"> Go Back </a>
+    <a href="{% url 'add-photo' album.id %}"> Add photo </a>
+</div>
+<br>
+
+<hr>
+<h2>{{album.title}}</h2>
+<hr>
+<h4>Photos in album: ({{photos_count}})</h4>
+
+<div class="photos-list-cover">
+    {% for photo in photos %}
+    <div class="photo-cover">
+        {{photo}}
+        <a href="{% url 'update-photo' album.id photo.id %}">Update</a><br>
+        <a href="{% url 'delete-photo' album.id photo.id %}">Delete</a><br>
+    </div>
+    <hr>
+
+    {% endfor %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<a href="{% url 'home' %}">Go Back</a>
+
+<h3>Create/Update Album</h3>
+
+<form method="POST" action="">
+  {% csrf_token %}
+  {{form.as_p}}
+
+  <input type="submit" value="Save">
+</form>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<a href="{% url 'album' album_id %}">Go Back</a>
+
+<h3>Delete Phtot</h3>
+
+<form method="POST" action="">
+  {% csrf_token %}
+  <p>Are You sure you want to delete "{{obj.title}}" ?</p>
+
+  <input type="submit" value="Delete">
+</form>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .album-cover a{
+        margin-right: 10px;
+    }
+
+    .album-cover {
+        display: flex;
+    }
+
+</style>
+
+<a href="{% url 'create-album' %}">Create album<br></a>
+
+<h3>Albums:</h3>
+<hr>
+
+<div class="albums-list-cover">
+    {% for album in albums %}
+    <div class="album-cover">
+        <a href="{% url 'album' album.id %}">{{album.title}}</a><br>
+        <a href="{% url 'update-album' album.id %}">Update</a><br>
+        <a href="{% url 'delete-album' album.id %}">Delete</a><br>
+    </div>
+    <hr>
+
+    {% endfor %}
+</div>
+
+
+{% endblock %}

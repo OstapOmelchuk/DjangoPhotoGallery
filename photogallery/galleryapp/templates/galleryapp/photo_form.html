@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<a href="{% url 'album' album.id %}">Go Back</a>
+
+<h3>Add/Update Photo</h3>
+
+<form method="POST" action="">
+  {% csrf_token %}
+  {{form.as_p}}
+
+  <input type="submit" value="Save">
+</form>
+
+<!--<div class="error-block">-->
+<!--  <p>{{message}}</p>-->
+<!--</div>-->
+
+{% endblock %}
